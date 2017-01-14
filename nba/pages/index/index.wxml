@@ -1,0 +1,86 @@
+<!--index.wxml-->
+<view class="container">
+     <swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{true}}" style="height:240px">
+        <block wx:for="{{imgUrls}}">
+            <swiper-item>
+            <image src="{{item}}" class="slide-image" height="400"/>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<view class="tabmenu" bindtap="bindChange">
+    <view class="tabbar {{currenttabindex==index?'active':''}}" wx:for="{{list}}" wx:key="{{lists}}" data-index="{{index}}" style="width:33.3%">{{item.title}}</view>
+    <!--<view class="tabbar {{currenttabindex==1?'active':''}}" data-index="1" style="width:33.3%">{{list[].title}}</view>
+    <view class="tabbar {{currenttabindex==2?'active':''}}" data-index="2" style="width:33.3%">2</view>-->
+</view>
+<view class="title">{{title}}</view>
+<view class="content {{currentcontentindex==0?'active':''}}">
+    <view class="listtr0" style="" wx:for="{{listtr0}}" wx:key="{{tr}}">
+        <text class="zt0" wx:if="{{item.status==0}}">{{statuslist.st0}}</text>
+        <text class="zt1" wx:if="{{item.status==1}}">{{statuslist.st1}}</text>
+        <text class="zt2" wx:if="{{item.status==2}}">{{statuslist.st2}}</text>
+        <text class="time">{{item.time}}</text>
+        <text class="player">{{item.player1}}</text>
+        <image class="playerlogo" src="{{item.player1logo}}"></image>
+        <text class="score">{{item.score}}</text>
+        <image class="playerlogo" src="{{item.player2logo}}"></image>
+        <text class="player" style="text-align:center">{{item.player2}}</text>
+    </view>
+</view>
+<view class="content {{currentcontentindex==1?'active':''}}">
+        <view class="" wx:for="{{live}}">
+            <view class="itemtitle">{{item.title}}</view>
+            <view class="itemflex">
+                <image src="{{item.player1logobig}}" style="width:35px;height:35px;"></image>
+                <view class="itemplayer">
+                    <view class="">
+                        <text class="" style="color:#333;font-size:14px;font-wieght:bold">{{item.player1}}</text>
+                        <text class="playerlocation">{{item.player1location}}</text>
+                    </view>
+                    <text class="playerinfo">{{item.player1info}}</text>
+                </view>
+                <view class="" style="display:flex;flex-direction:column">
+                    <text class="itemscore" >{{item.score}}</text>
+                    <text class="bsz" >比赛中</text>
+                </view>
+                <view class="itemplayer">
+                    <view class="" style="text-align:right">
+                        <text class="" style="color:#666;font-size:12px;">{{item.player2location}}</text>
+                        <text class="playerlocation">{{item.player2}}</text>
+                    </view>
+                    <text class="playerinfo" style="">{{item.player2info}}</text>
+                 </view>
+                 <image src="{{item.player2logobig}}" style="width:35px;height:35px;"></image>
+             </view>
+             <view class="linkbox" bindtap="bindlink">
+                 <text wx:for="{{livelink}}" class="livelink" data-linkid="{{index}}">{{item.text}}</text>
+             </view>
+        </view>
+    <view class="listtr1" style="" wx:for="{{listtr1}}" wx:key="{{tr}}">
+        <text class="zt0" wx:if="{{item.status==0}}">{{statuslist.st0}}</text>
+        <text class="zt1" wx:if="{{item.status==1}}">{{statuslist.st1}}</text>
+        <text class="zt2" wx:if="{{item.status==2}}">{{statuslist.st2}}</text>
+        <text class="time">{{item.time}}</text>
+        <text class="player">{{item.player1}}</text>
+        <image class="playerlogo" src="{{item.player1logo}}"></image>
+        <text class="score">{{item.score}}</text>
+        <image class="playerlogo" src="{{item.player2logo}}"></image>
+        <text class="player" style="text-align:center">{{item.player2}}</text>
+    </view>  
+</view>
+<view>
+    <view class="content {{currentcontentindex==2?'active':''}}">
+        <view class="listtr2" style="" wx:for="{{listtr2}}" wx:key="{{tr}}">
+        <text class="zt0" wx:if="{{item.status==0}}">{{statuslist.st0}}</text>
+        <text class="zt1" wx:if="{{item.status==1}}">{{statuslist.st1}}</text>
+        <text class="zt2" wx:if="{{item.status==2}}">{{statuslist.st2}}</text>
+        <text class="time">{{item.time}}</text>
+        <text class="player">{{item.player1}}</text>
+        <image class="playerlogo" src="{{item.player1logo}}"></image>
+        <text class="score">{{item.score}}</text>
+        <image class="playerlogo" src="{{item.player2logo}}"></image>
+        <text class="player" style="text-align:center">{{item.player2}}</text>
+    </view>  
+    </view>
+</view>
